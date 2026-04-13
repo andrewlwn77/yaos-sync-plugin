@@ -1,0 +1,10 @@
+{
+  "id": "yaos-sync",
+  "name": "YAOS Sync",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Zero-config, real-time vault sync via Yjs CRDTs",
+  "author": "kavinsood",
+  "authorUrl": "https://github.com/kavinsood/yaos",
+  "isDesktopOnly": false
+}

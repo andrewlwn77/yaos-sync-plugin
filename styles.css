@@ -1,0 +1,254 @@
+/* ── Status Bar ──────────────────────────────────────────────────── */
+
+.yaos-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* ── Connection Status ──────────────────────────────────────────── */
+
+.yaos-connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.yaos-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--text-muted);
+}
+
+.yaos-status-connected {
+  background: var(--color-green);
+}
+
+.yaos-status-connecting {
+  background: var(--color-yellow);
+  animation: yaos-pulse 1.5s ease-in-out infinite;
+}
+
+.yaos-status-disconnected {
+  background: var(--color-red);
+}
+
+@keyframes yaos-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.yaos-status-label {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+/* ── Settings Tab ───────────────────────────────────────────────── */
+
+.yaos-setting-error {
+  color: var(--color-red) !important;
+}
+
+.yaos-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border: 1px dashed var(--background-modifier-border);
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.yaos-qr-placeholder {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  text-align: center;
+}
+
+.yaos-qr-label {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.yaos-qr-image {
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.yaos-readonly-input {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* ── Snapshot Browser Modal ─────────────────────────────────────── */
+
+.yaos-snapshot-browser {
+  min-width: 400px;
+}
+
+.yaos-snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.yaos-snapshot-table th,
+.yaos-snapshot-table td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.yaos-snapshot-table th {
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.yaos-snapshot-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.yaos-snapshot-actions button {
+  font-size: var(--font-ui-small);
+  padding: 2px 8px;
+}
+
+/* ── Restore Confirmation Modal ─────────────────────────────────── */
+
+.yaos-restore-confirm {
+  max-width: 500px;
+}
+
+.yaos-restore-summary {
+  padding: 12px;
+  background: var(--background-secondary);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: var(--font-ui-small);
+}
+
+.yaos-restore-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ── Snapshot Diff Viewer ───────────────────────────────────────── */
+
+.yaos-snapshot-diff {
+  min-width: 500px;
+}
+
+.yaos-diff-summary {
+  display: flex;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: var(--font-ui-small);
+}
+
+.yaos-diff-added {
+  color: var(--color-green);
+}
+
+.yaos-diff-modified {
+  color: var(--color-yellow);
+}
+
+.yaos-diff-deleted {
+  color: var(--color-red);
+}
+
+.yaos-diff-file-list {
+  margin: 8px 0;
+}
+
+.yaos-diff-file {
+  margin-bottom: 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.yaos-diff-file summary {
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  padding: 4px 0;
+}
+
+.yaos-diff-na {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: var(--font-ui-small);
+}
+
+.yaos-diff-content {
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.5;
+  overflow-x: auto;
+  padding: 8px;
+  background: var(--background-primary);
+  border-radius: 4px;
+  margin: 4px 0;
+  white-space: pre;
+}
+
+.yaos-diff-line-add {
+  color: var(--color-green);
+}
+
+.yaos-diff-line-remove {
+  color: var(--color-red);
+}
+
+.yaos-diff-line-ctx {
+  color: var(--text-muted);
+}
+
+/* ── Remote Cursors (y-codemirror.next) ─────────────────────────── */
+
+.cm-ySelectionInfo {
+  font-size: var(--font-ui-smaller);
+  font-family: var(--font-interface);
+  padding: 1px 4px;
+  border-radius: 3px 3px 3px 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* ── Responsive (mobile) ────────────────────────────────────────── */
+
+.is-mobile .yaos-snapshot-browser,
+.is-mobile .yaos-snapshot-diff {
+  min-width: unset;
+  width: 100%;
+}
+
+.is-mobile .yaos-snapshot-table {
+  font-size: var(--font-ui-small);
+}
+
+.is-mobile .yaos-snapshot-table th,
+.is-mobile .yaos-snapshot-table td {
+  padding: 4px 6px;
+}
+
+.is-mobile .yaos-diff-content {
+  font-size: 11px;
+}
+
+.is-mobile .yaos-qr-image {
+  max-width: 160px;
+}
